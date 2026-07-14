@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello World</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f6f8fb;
+      color: #1f2937;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border: 1px solid #dbe3ec;
+    }
+    h1 {
+      color: #7c3aed;
+      margin: 0 0 10px 0;
+      font-size: 2.5rem;
+    }
+    p {
+      color: #475569;
+      margin: 0;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 id="heading">Hello, World!</h1>
+    <p>Your web application is successfully running on Azure Static Web Apps.</p>
+  </div>
+
+  <script>
+    // Simple verification check to ensure JavaScript executes correctly
+    console.log("Webpage script successfully loaded.");
+    
+    // Optional: Dynamic timestamp just to show active execution
+    const currentYear = new Date().getFullYear();
+    const footer = document.createElement("p");
+    footer.style.fontSize = "0.85rem";
+    footer.style.marginTop = "20px";
+    footer.style.color = "#94a3b8";
+    footer.textContent = `© ${currentYear} Live Deployment Test`;
+    document.querySelector(".container").appendChild(footer);
+  </script>
+
+</body>
+</html>
