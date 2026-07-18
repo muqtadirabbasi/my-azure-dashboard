@@ -117,6 +117,11 @@
     .section.group-b {
       border-top: 4px solid #0284c7;
     }
+    .section.survey-section {
+      border: 1px solid #10b981;
+      background: rgba(16, 185, 129, 0.03);
+      margin-bottom: 20px;
+    }
     
     .button-stack {
       display: flex;
@@ -144,6 +149,16 @@
     .group-b .user-btn:hover {
       border-color: #0284c7;
       background: rgba(2, 132, 199, 0.08);
+    }
+    .survey-btn {
+      background: #10b981;
+      border: 1px solid #059669;
+      justify-content: center;
+      gap: 8px;
+    }
+    .survey-btn:hover {
+      background: #059669;
+      border-color: #047857;
     }
 
     .user-btn span.badge-user {
@@ -209,6 +224,16 @@
 
     <div class="instructions-box">
       <strong>Evaluation Protocol Notice:</strong> Please locate your assigned experimental arm below. Select the specified suspicious profile to initiate your timeline triage analysis and downstream survey responses.
+    </div>
+
+    <!-- EXIT SURVEY DEPLOYMENT BLOCK -->
+    <div class="section survey-section">
+      <h2 style="color: #10b981; font-size: 1.1rem; margin-bottom: 2px;">Study Phase Completion</h2>
+      <div class="group-desc" style="margin-bottom: 12px;">Once you have completed your triage evaluation tasks, proceed to submit your data:</div>
+      <a href="https://uwaterloo.yul1.qualtrics.com/jfe/preview/previewId/ad9c1b8a-3a8b-424d-9a74-ddb523fa8749/SV_b7Tc131RtduFkYm?Q_CHL=preview&Q_SurveyVersionID=current" class="user-btn survey-btn" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Open User Study Exit Survey
+      </a>
     </div>
 
     <div class="evaluation-grid">
