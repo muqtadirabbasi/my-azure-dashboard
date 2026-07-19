@@ -96,26 +96,27 @@
       color: #ffffff;
     }
 
-    /* Unified User Grid Layout */
-    .user-grid {
+    /* Unified Grid Setup */
+    .evaluation-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
       margin-bottom: 20px;
     }
+    @media (max-width: 768px) {
+      .evaluation-grid { grid-template-columns: 1fr; }
+    }
+
     .user-card {
       background: #1e293b;
       border: 1px solid #334155;
-      border-top: 4px solid #7c3aed;
       border-radius: 8px;
       padding: 20px;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
+      border-top: 4px solid #7c3aed;
     }
     
-    .user-main-btn {
+    .user-btn {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -123,32 +124,34 @@
       text-decoration: none;
       padding: 12px 16px;
       border-radius: 6px;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 700;
       background: #0f172a;
       border: 1px solid #334155;
       transition: all 0.15s ease-in-out;
+      margin-bottom: 14px;
     }
-    .user-main-btn:hover {
+    .user-card .user-btn:hover {
       border-color: #7c3aed;
       background: rgba(124, 58, 237, 0.08);
     }
-    .user-main-btn span.badge-user {
+
+    .user-btn span.badge-user {
       font-size: 0.72rem;
       font-weight: 600;
       padding: 2px 8px;
       border-radius: 4px;
       background: #1e293b;
-      color: #94a3b8;
-      border: 1px solid #334155;
+      color: #a78bfa;
+      border: 1px solid #4c1d95;
     }
 
-    /* Performance Matrix Sub-Box */
+    /* Nested Matrix Container Styling */
     .matrix-box {
       background: rgba(15, 23, 42, 0.6);
-      border: 1px solid #334155;
+      border: 1px solid #1e293b;
       border-radius: 6px;
-      padding: 12px;
+      padding: 12px 14px;
     }
     .matrix-title {
       font-size: 0.75rem;
@@ -157,32 +160,34 @@
       letter-spacing: 0.05em;
       color: #94a3b8;
       margin-bottom: 8px;
+      border-bottom: 1px solid #1e293b;
       padding-bottom: 4px;
-      border-bottom: 1px solid #334155;
     }
     .matrix-links {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 6px;
     }
+    @media (min-width: 480px) {
+      .matrix-links { grid-template-columns: 1fr 1fr; }
+    }
     .matrix-link {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: #38bdf8;
       text-decoration: none;
       padding: 4px 6px;
       border-radius: 4px;
+      background: rgba(56, 189, 248, 0.03);
+      border: 1px solid rgba(56, 189, 248, 0.1);
       transition: all 0.12s ease;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
     .matrix-link:hover {
-      background: rgba(56, 189, 248, 0.08);
-      color: #7dd3fc;
-      padding-left: 10px;
+      color: #ffffff;
+      background: rgba(56, 189, 248, 0.15);
+      border-color: #38bdf8;
     }
 
-    /* Survey Section */
+    /* Exit Survey Layout */
     .survey-section {
       border: 1px solid #10b981;
       background: rgba(16, 185, 129, 0.03);
@@ -195,23 +200,28 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      background: #10b981;
+      border: 1px solid #059669;
       color: #f8fafc;
       text-decoration: none;
       padding: 12px 16px;
       border-radius: 6px;
       font-size: 0.88rem;
       font-weight: 700;
-      background: #10b981;
-      border: 1px solid #059669;
-      transition: all 0.15s ease-in-out;
+      transition: all 0.15s;
     }
     .survey-btn:hover {
       background: #059669;
       border-color: #047857;
     }
+    .group-desc {
+      color: #64748b;
+      font-size: 0.82rem;
+      margin-bottom: 16px;
+    }
 
     /* Research Team Area */
-    .team-section {
+    .footer-section {
       background: rgba(30, 41, 59, 0.3);
       border: 1px solid #334155;
       border-radius: 8px;
@@ -245,7 +255,7 @@
     <header>
       <div class="badge">Experimental User Study</div>
       <h1>SOC Triage Dashboard Evaluation Portal</h1>
-      <div class="subtitle">Target Verification Hub & Performance Metrics</div>
+      <div class="subtitle">Target Verification & Downstream Diagnostic Hub</div>
       
       <div class="nav-container">
         <a href="index.html" class="btn-nav-back">
@@ -256,80 +266,80 @@
     </header>
 
     <div class="instructions-box">
-      <strong>Evaluation Protocol Notice:</strong> Select an assigned user profile environment to initiate your timeline triage analysis, or inspect the corresponding system models inside each user's Performance Matrix.
+      <strong>Evaluation Protocol Notice:</strong> Select your assigned target dashboard profile below to investigate baseline event anomalies. Utilize the contextual performance metrics inside each tracking window to finalize downstream analysis criteria.
     </div>
 
-    <!-- UNIFIED USER GRID (GROUPS REMOVED) -->
-    <div class="user-grid">
+    <!-- MAIN GRID CONTAINER -->
+    <div class="evaluation-grid">
       
-      <!-- USER 401 -->
+      <!-- USER PROFILE 093 -->
       <div class="user-card">
-        <a href="https://my-soc-dashboard-ejesexfgdgdrh7fr.canadaeast-01.azurewebsites.net/SOC_Dashboard_Design_With_Images401.html" class="user-main-btn">
-          Triage Dashboard Environment
-          <span class="badge-user">Profile 401</span>
-        </a>
-        <div class="matrix-box">
-          <div class="matrix-title">Performance Matrix</div>
-          <div class="matrix-links">
-            <a href="AE-performace-matrix/user_401_anomaly_scores" class="matrix-link">📊 Anomaly Scores</a>
-            <a href="AE-performace-matrix/user_401_confusion_matrix" class="matrix-link">🎯 Confusion Matrix</a>
-            <a href="AE-performace-matrix/user_401_cdf_curve" class="matrix-link">📈 CDF Curve</a>
-            <a href="AE-performace-matrix/user_401_roc_curve" class="matrix-link">📉 ROC Curve</a>
-            <a href="AE-performace-matrix/user_401_training_loss" class="matrix-link">📉 Training Loss</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- USER 093 -->
-      <div class="user-card">
-        <a href="https://my-soc-dashboard-ejesexfgdgdrh7fr.canadaeast-01.azurewebsites.net/SOC_Dashboard_Design_With_Images093.html" class="user-main-btn">
-          Triage Dashboard Environment
+        <a href="https://my-soc-dashboard-ejesexfgdgdrh7fr.canadaeast-01.azurewebsites.net/SOC_Dashboard_Design_With_Images093.html" class="user-btn">
+          Triage User Environment
           <span class="badge-user">Profile 093</span>
         </a>
         <div class="matrix-box">
-          <div class="matrix-title">Performance Matrix</div>
+          <div class="matrix-title">Performance Matrix Logs</div>
           <div class="matrix-links">
-            <a href="AE-performace-matrix/user_093_anomaly_scores" class="matrix-link">📊 Anomaly Scores</a>
-            <a href="AE-performace-matrix/user_093_confusion_matrix" class="matrix-link">🎯 Confusion Matrix</a>
-            <a href="AE-performace-matrix/user_093_cdf_curve" class="matrix-link">📈 CDF Curve</a>
-            <a href="AE-performace-matrix/user_093_roc_curve" class="matrix-link">📉 ROC Curve</a>
-            <a href="AE-performace-matrix/user_093_training_loss" class="matrix-link">📉 Training Loss</a>
+            <a href="AE-performance-matrix/user_093_anomaly_scores.html" class="matrix-link">Anomaly Scores</a>
+            <a href="AE-performance-matrix/user_093_confusion_matrix.html" class="matrix-link">Confusion Matrix</a>
+            <a href="AE-performance-matrix/user_093_cdf_curve.html" class="matrix-link">CDF Curve</a>
+            <a href="AE-performance-matrix/user_093_roc_curve.html" class="matrix-link">ROC Curve</a>
+            <a href="AE-performance-matrix/user_093_training_loss.html" class="matrix-link" style="grid-column: span 1;">Training Loss</a>
           </div>
         </div>
       </div>
 
-      <!-- USER 345 -->
+      <!-- USER PROFILE 345 -->
       <div class="user-card">
-        <a href="https://my-soc-dashboard-ejesexfgdgdrh7fr.canadaeast-01.azurewebsites.net/SOC_Dashboard_Design_With_Images345.html" class="user-main-btn">
-          Triage Dashboard Environment
+        <a href="https://my-soc-dashboard-ejesexfgdgdrh7fr.canadaeast-01.azurewebsites.net/SOC_Dashboard_Design_With_Images345.html" class="user-btn">
+          Triage User Environment
           <span class="badge-user">Profile 345</span>
         </a>
         <div class="matrix-box">
-          <div class="matrix-title">Performance Matrix</div>
+          <div class="matrix-title">Performance Matrix Logs</div>
           <div class="matrix-links">
-            <a href="AE-performace-matrix/user_345_anomaly_scores" class="matrix-link">📊 Anomaly Scores</a>
-            <a href="AE-performace-matrix/user_345_confusion_matrix" class="matrix-link">🎯 Confusion Matrix</a>
-            <a href="AE-performace-matrix/user_345_cdf_curve" class="matrix-link">📈 CDF Curve</a>
-            <a href="AE-performace-matrix/user_345_roc_curve" class="matrix-link">📉 ROC Curve</a>
-            <a href="AE-performace-matrix/user_345_training_loss" class="matrix-link">📉 Training Loss</a>
+            <a href="AE-performance-matrix/user_345_anomaly_scores.html" class="matrix-link">Anomaly Scores</a>
+            <a href="AE-performance-matrix/user_345_confusion_matrix.html" class="matrix-link">Confusion Matrix</a>
+            <a href="AE-performance-matrix/user_345_cdf_curve.html" class="matrix-link">CDF Curve</a>
+            <a href="AE-performance-matrix/user_345_roc_curve.html" class="matrix-link">ROC Curve</a>
+            <a href="AE-performance-matrix/user_345_training_loss.html" class="matrix-link">Training Loss</a>
           </div>
         </div>
       </div>
 
-      <!-- USER 100 -->
+      <!-- USER PROFILE 401 -->
       <div class="user-card">
-        <a href="https://my-soc-dashboard-ejesexfgdgdrh7fr.canadaeast-01.azurewebsites.net/SOC_Dashboard_Design_With_Images100.html" class="user-main-btn">
-          Triage Dashboard Environment
+        <a href="https://my-soc-dashboard-ejesexfgdgdrh7fr.canadaeast-01.azurewebsites.net/SOC_Dashboard_Design_With_Images401.html" class="user-btn">
+          Triage User Environment
+          <span class="badge-user">Profile 401</span>
+        </a>
+        <div class="matrix-box">
+          <div class="matrix-title">Performance Matrix Logs</div>
+          <div class="matrix-links">
+            <a href="AE-performance-matrix/user_401_anomaly_scores.html" class="matrix-link">Anomaly Scores</a>
+            <a href="AE-performance-matrix/user_401_confusion_matrix.html" class="matrix-link">Confusion Matrix</a>
+            <a href="AE-performance-matrix/user_401_cdf_curve.html" class="matrix-link">CDF Curve</a>
+            <a href="AE-performance-matrix/user_401_roc_curve.html" class="matrix-link">ROC Curve</a>
+            <a href="AE-performance-matrix/user_401_training_loss.html" class="matrix-link">Training Loss</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- USER PROFILE 100 -->
+      <div class="user-card">
+        <a href="https://my-soc-dashboard-ejesexfgdgdrh7fr.canadaeast-01.azurewebsites.net/SOC_Dashboard_Design_With_Images100.html" class="user-btn">
+          Triage User Environment
           <span class="badge-user">Profile 100</span>
         </a>
         <div class="matrix-box">
-          <div class="matrix-title">Performance Matrix</div>
+          <div class="matrix-title">Performance Matrix Logs</div>
           <div class="matrix-links">
-            <a href="AE-performace-matrix/user_100_anomaly_scores" class="matrix-link">📊 Anomaly Scores</a>
-            <a href="AE-performace-matrix/user_100_confusion_matrix" class="matrix-link">🎯 Confusion Matrix</a>
-            <a href="AE-performace-matrix/user_100_cdf_curve" class="matrix-link">📈 CDF Curve</a>
-            <a href="AE-performace-matrix/user_100_roc_curve" class="matrix-link">📉 ROC Curve</a>
-            <a href="AE-performace-matrix/user_100_training_loss" class="matrix-link">📉 Training Loss</a>
+            <a href="AE-performance-matrix/user_100_anomaly_scores.html" class="matrix-link">Anomaly Scores</a>
+            <a href="AE-performance-matrix/user_100_confusion_matrix.html" class="matrix-link">Confusion Matrix</a>
+            <a href="AE-performance-matrix/user_100_cdf_curve.html" class="matrix-link">CDF Curve</a>
+            <a href="AE-performance-matrix/user_100_roc_curve.html" class="matrix-link">ROC Curve</a>
+            <a href="AE-performance-matrix/user_100_training_loss.html" class="matrix-link">Training Loss</a>
           </div>
         </div>
       </div>
@@ -339,7 +349,7 @@
     <!-- EXIT SURVEY DEPLOYMENT BLOCK -->
     <div class="survey-section">
       <h2 style="color: #10b981; font-size: 1.1rem; margin-bottom: 2px;">Study Phase Completion</h2>
-      <div style="color: #64748b; font-size: 0.82rem; margin-bottom: 12px;">Once you have completed your triage evaluation tasks, proceed to submit your data:</div>
+      <div class="group-desc" style="margin-bottom: 12px;">Once you have completed your triage evaluation tasks, proceed to submit your data:</div>
       <a href="https://uwaterloo.yul1.qualtrics.com/jfe/preview/previewId/ad9c1b8a-3a8b-424d-9a74-ddb523fa8749/SV_b7Tc131RtduFkYm?Q_CHL=preview&Q_SurveyVersionID=current" class="survey-btn" target="_blank">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         Open User Study Exit Survey
@@ -347,7 +357,7 @@
     </div>
 
     <!-- SYSTEM FOOTER -->
-    <div class="team-section">
+    <div class="footer-section">
       <h2 style="font-size: 0.9rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;">
         Research Investigation & Contact Desk
       </h2>
