@@ -69,7 +69,6 @@
       font-size: 0.8rem;
       font-weight: 600;
       text-decoration: none;
-      cursor: pointer;
       transition: all 0.15s ease-in-out;
     }
     .btn-nav-testing:hover {
@@ -315,9 +314,9 @@
       <h1>SOC Triage Training Command</h1>
       <div class="subtitle">Operational Baseline Audit & Evaluation Hub Profile</div>
       
-      <!-- NAV TO TESTING PORTAL (PASSWORD PROTECTED) -->
+      <!-- NAV TO TESTING PORTAL -->
       <div class="nav-container">
-        <a href="#" onclick="accessTestingSite(event)" class="btn-nav-testing">
+        <a href="testing_portal.html" class="btn-nav-testing">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           Go to Testing Website
         </a>
@@ -473,18 +472,5 @@
     </div>
 
   </div> <!-- /wrapper -->
-
-  <!-- PASSWORD PROTECTION SCRIPT -->
-  <script>
-    function accessTestingSite(event) {
-      event.preventDefault();
-      const password = prompt("Enter access key for Testing Website:");
-      if (password === "2026") {
-        window.location.href = "testing_portal.html";
-      } else if (password !== null) {
-        alert("Incorrect passcode. Access denied.");
-      }
-    }
-  </script>
 </body>
 </html>
