@@ -306,17 +306,6 @@
       text-decoration: underline;
     }
   </style>
-  <script>
-    function accessTestingPortal(event, url) {
-      event.preventDefault();
-      const password = prompt("Enter passcode to access testing portal:");
-      if (password === "2026") {
-        window.location.href = url;
-      } else if (password !== null) {
-        alert("Incorrect passcode. Access denied.");
-      }
-    }
-  </script>
 </head>
 <body>
 
@@ -326,9 +315,9 @@
       <h1>SOC Triage Training Command</h1>
       <div class="subtitle">Operational Baseline Audit & Evaluation Hub Profile</div>
       
-      <!-- NAV TO TESTING PORTAL -->
+      <!-- NAV TO TESTING PORTAL (PASSWORD PROTECTED) -->
       <div class="nav-container">
-        <a href="testing_portal.html" class="btn-nav-testing" onclick="accessTestingPortal(event, 'testing_portal.html')">
+        <a href="testing_portal.html" class="btn-nav-testing" onclick="handleProtectedAccess(event, 'testing_portal.html')">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           Go to Testing Website
         </a>
@@ -348,7 +337,8 @@
             <a href="https://my-soc-dashboard-ejesexfgdgdrh7fr.canadaeast-01.azurewebsites.net/SOC_Dashboard_Design_With_Images162.html" class="user-btn azure-btn" target="_blank">
               Triage User 162 Dashboard Environment (With Gemini LLM Support)
             </a>
-            <a href="mock-testing.html" class="user-btn mock-btn" onclick="accessTestingPortal(event, 'mock-testing.html')">
+            <!-- MOCK TESTING BUTTON (FREE ACCESS - NO PASSKEY) -->
+            <a href="mock-testing.html" class="user-btn mock-btn">
               Mock Testing
             </a>
             <a href="https://uwaterloo.yul1.qualtrics.com/jfe5/preview/previewId/2459ab5d-ada9-4e12-8d55-36ba5286674b/SV_eqzvEfGhnw4Kz8q?Q_CHL=preview&Q_SurveyVersionID=current" class="user-btn survey-btn" target="_blank">
@@ -484,5 +474,19 @@
     </div>
 
   </div> <!-- /wrapper -->
+
+  <!-- PASSKEY VERIFICATION SCRIPT -->
+  <script>
+    function handleProtectedAccess(event, targetUrl) {
+      event.preventDefault();
+      const inputPass = prompt("Enter passkey to access the testing portal:");
+      
+      if (inputPass === "2026") {
+        window.location.href = targetUrl;
+      } else if (inputPass !== null) {
+        alert("Incorrect passkey. Access denied.");
+      }
+    }
+  </script>
 </body>
 </html>
