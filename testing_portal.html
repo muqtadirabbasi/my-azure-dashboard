@@ -298,7 +298,7 @@
       padding: 4px 6px;
       background: rgba(255, 255, 255, 0.01);
       border-radius: 4px;
-      transition: all 0.1s;
+      transition: all 0.11s;
       cursor: pointer;
     }
     .matrix-link:hover {
@@ -306,19 +306,57 @@
       background: rgba(124, 58, 237, 0.1);
     }
 
+    /* REDESIGNED EXIT SURVEY SECTION */
     .survey-section {
       border: 1px solid #10b981;
       background: rgba(16, 185, 129, 0.03);
-      border-radius: 8px;
-      padding: 14px;
-      margin-bottom: 16px;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
       text-align: center;
     }
-    .survey-btn-container {
+    .survey-section-title {
+      color: #10b981;
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .survey-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 768px) {
+      .survey-cards-grid { grid-template-columns: 1fr; }
+    }
+    .survey-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 16px;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
       gap: 12px;
-      flex-wrap: wrap;
+    }
+    .survey-card-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .tag-student { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+    .tag-analyst { background: rgba(167, 139, 250, 0.15); color: #a78bfa; border: 1px solid rgba(167, 139, 250, 0.3); }
+    
+    .survey-card-heading {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #ffffff;
     }
     .survey-btn {
       display: inline-flex;
@@ -329,15 +367,17 @@
       border: 1px solid #059669;
       color: #ffffff;
       text-decoration: none;
-      padding: 10px 20px;
+      padding: 12px 20px;
       border-radius: 6px;
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 700;
-      transition: all 0.15s;
+      width: 100%;
+      transition: all 0.15s ease-in-out;
     }
     .survey-btn:hover {
       background: #059669;
       border-color: #047857;
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
     }
 
     .footer-section {
@@ -638,16 +678,29 @@
 
     <!-- EXIT SURVEY DEPLOYMENT BLOCK -->
     <div class="survey-section">
-      <h2 style="color: #10b981; font-size: 1rem; margin-bottom: 8px;">Study Phase Completion</h2>
-      <div class="survey-btn-container">
-        <a href="https://uwaterloo.yul1.qualtrics.com/jfe/preview/previewId/ad9c1b8a-3a8b-424d-9a74-ddb523fa8749/SV_b7Tc131RtduFkYm?Q_CHL=preview&Q_SurveyVersionID=current" class="survey-btn" target="_blank">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          Open User Study Exit Survey (Students)
-        </a>
-        <a href="https://uwaterloo.ca1.qualtrics.com/jfe/form/SV_es8HRdyIVOMqW6q" class="survey-btn" target="_blank">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          Open User Study Exit Survey (Professional SOC Analysts)
-        </a>
+      <div class="survey-section-title">Study Phase Completion — Exit Surveys</div>
+      <div class="survey-cards-grid">
+        
+        <!-- CARD 1: STUDENTS -->
+        <div class="survey-card">
+          <span class="survey-card-tag tag-student">Academic Participants</span>
+          <div class="survey-card-heading">Students Exit Survey</div>
+          <a href="https://uwaterloo.yul1.qualtrics.com/jfe/preview/previewId/a5d74870-1412-4b41-8754-c0df9d1f70e8/SV_es8HRdyIVOMqW6q?Q_CHL=preview&Q_SurveyVersionID=current" class="survey-btn" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Open Student Exit Survey
+          </a>
+        </div>
+
+        <!-- CARD 2: SOC ANALYSTS -->
+        <div class="survey-card">
+          <span class="survey-card-tag tag-analyst">Industry Professionals</span>
+          <div class="survey-card-heading">Professional SOC Analysts Exit Survey</div>
+          <a href="https://uwaterloo.ca1.qualtrics.com/jfe/form/SV_es8HRdyIVOMqW6q" class="survey-btn" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Open Professional SOC Analyst Exit Survey
+          </a>
+        </div>
+
       </div>
     </div>
 
