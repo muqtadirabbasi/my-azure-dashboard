@@ -306,14 +306,41 @@
       background: rgba(124, 58, 237, 0.1);
     }
 
+    /* DUAL EXIT SURVEY STYLES */
     .survey-section {
       border: 1px solid #10b981;
       background: rgba(16, 185, 129, 0.03);
       border-radius: 8px;
-      padding: 14px;
+      padding: 20px;
       margin-bottom: 16px;
       text-align: center;
     }
+    .survey-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      margin-top: 14px;
+    }
+    .survey-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .survey-card-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .student-theme { color: #38bdf8; }
+    .analyst-theme { color: #a78bfa; }
+
     .survey-btn {
       display: inline-flex;
       align-items: center;
@@ -323,11 +350,18 @@
       border: 1px solid #059669;
       color: #ffffff;
       text-decoration: none;
-      padding: 10px 20px;
+      padding: 12px 22px;
       border-radius: 6px;
-      font-size: 0.85rem;
-      font-weight: 700;
+      font-size: 0.9rem;
+      font-weight: 800;
       transition: all 0.15s;
+      width: 100%;
+      max-width: 320px;
+    }
+    .survey-btn:hover {
+      background: #059669;
+      border-color: #047857;
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
     }
 
     .footer-section {
@@ -626,13 +660,30 @@
       </div>
     </div>
 
-    <!-- EXIT SURVEY DEPLOYMENT BLOCK -->
+    <!-- DUAL EXIT SURVEY DEPLOYMENT BLOCK -->
     <div class="survey-section">
-      <h2 style="color: #10b981; font-size: 1rem; margin-bottom: 8px;">Study Phase Completion</h2>
-      <a href="https://uwaterloo.yul1.qualtrics.com/jfe5/preview/previewId/2459ab5d-ada9-4e12-8d55-36ba5286674b/SV_eqzvEfGhnw4Kz8q?Q_CHL=preview&Q_SurveyVersionID=current" class="survey-btn" target="_blank">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        Open User Study Exit Survey
-      </a>
+      <h2 style="color: #10b981; font-size: 1.1rem; font-weight: 800; margin-bottom: 4px;">Study Phase Completion</h2>
+      <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 12px;">Please select the appropriate exit survey matching your participant role:</p>
+      
+      <div class="survey-grid">
+        <!-- Student Exit Survey Card -->
+        <div class="survey-card">
+          <div class="survey-card-title student-theme">Student Participants</div>
+          <a href="https://uwaterloo.yul1.qualtrics.com/jfe/preview/previewId/a5d74870-1412-4b41-8754-c0df9d1f70e8/SV_es8HRdyIVOMqW6q?Q_CHL=preview&Q_SurveyVersionID=current" class="survey-btn" target="_blank">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Open Student Exit Survey
+          </a>
+        </div>
+
+        <!-- SOC Analyst Exit Survey Card -->
+        <div class="survey-card">
+          <div class="survey-card-title analyst-theme">Professional SOC Analysts</div>
+          <a href="https://uwaterloo.ca1.qualtrics.com/jfe/form/SV_es8HRdyIVOMqW6q" class="survey-btn" target="_blank">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Open Professional Analyst Survey
+          </a>
+        </div>
+      </div>
     </div>
 
     <!-- SYSTEM FOOTER -->
@@ -666,7 +717,7 @@
     </div>
   </div>
 
-  <!-- NEW SECURE PASSKEY MODAL COMPONENT -->
+  <!-- SECURE PASSKEY MODAL COMPONENT -->
   <div id="passkeyModal" class="image-modal">
     <div class="passkey-modal-content">
       <div class="passkey-header">Verification Required</div>
