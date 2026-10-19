@@ -241,11 +241,8 @@
     /* Step 4: Official Testing Portals */
     .test-portals-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 12px;
-    }
-    @media (max-width: 600px) {
-      .test-portals-grid { grid-template-columns: 1fr; }
     }
     .portal-card {
       background: #0b1120;
@@ -474,16 +471,6 @@
           </div>
           <a href="testing_portal.html" class="btn-portal-enter" onclick="handleProtectedAccess(event, 'testing_portal.html', '2026')">
             Enter Portal 1
-          </a>
-        </div>
-
-        <div class="portal-card">
-          <div class="portal-info">
-            <h4>Testing Website 2</h4>
-            <p>Passkey: 2030</p>
-          </div>
-          <a href="testing_portal2.html" class="btn-portal-enter" onclick="handleProtectedAccess(event, 'testing_portal2.html', '2030')">
-            Enter Portal 2
           </a>
         </div>
       </div>
